@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CrudController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+   return view('welcome');
+  
 });
 
 Route::middleware([
@@ -16,3 +19,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/crud', [CrudController::class, 'index'])->name('crud');
+
